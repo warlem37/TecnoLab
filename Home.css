@@ -1,0 +1,509 @@
+:root {
+	--light-gold-rgb: 249 181 51;
+	--dark-gold-rgb: 215 147 23;
+	
+	--primary-stripe-rgb: 230 230 230;
+	--secondary-stripe-rgb: 240 240 240;
+  }
+body{
+	background-color: black;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+#app {
+	height: 200vh;
+	overflow: hidden;
+	position: relative;
+  }
+
+@media (max-width: 800px){
+    #app{
+        width: 800px;
+        left: 100px;
+    }
+
+    #conteiner-estrela{
+        width: 800px;
+    }
+
+    #padrao-estrela{
+        width: 800px;
+        
+    }
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+  }
+
+@keyframes pan {
+	0% {
+	  background-position: 0% 0%;
+	}
+	100% {
+	  background-position: 100% 0%;
+	}
+  }
+
+@keyframes move-background {
+    0% {
+      background-position: 0% 0%;
+    }
+    
+    100% {
+      background-position: -100% 0%;
+	}
+}
+
+@keyframes bounce {
+    0%, 20%, 100% {
+      translate: 0% 0%;
+    }
+    
+    10% {
+      translate: 0% -12%;
+    }
+}
+
+@font-face {
+	font-family: Cubic;
+	src: url(../Fontes/cubic.ttf);
+ }
+
+@font-face {
+	font-family: SuperMario64;
+	src: url(../Fontes/Super\ Mario\ 64.ttf);
+}
+
+    					/* --- CABEÇALHO --- */
+
+header{
+	display: flex;
+	background-color: rgb(50 50 50);
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 10px;
+	background-image: url("https://assets.codepen.io/1468070/Repeatable+Pattern+-+Wavy+Lines.png?format=auto&quality=80");
+	background-size: cover;
+	background-position: center;
+}
+
+h1{
+	font-family: Cubic;
+	display: inline-block;
+ }
+
+ h2{
+	display: block;
+	position: absolute;
+	color: white;
+	font-size: 45px;
+ }
+
+li{
+	display: inline-block;
+	margin: 24px;
+ }
+
+a{
+	color: white;
+	font-weight: bold;
+ }
+a:hover{
+    color: rgb(var(--light-gold-rgb));
+    transition: 0.3s all;
+}
+
+#nometitulo:hover{
+	color: white;
+}
+
+#loginbtn{
+	border: 2px solid rgb(var(--dark-gold-rgb));
+	padding: 10px;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+#loginbtn:hover{
+	background-color: rgb(var(--light-gold-rgb));
+	color: white;
+	font-weight: 10 bold;
+}
+
+ #titulo{
+	display: inline-block;
+	flex-direction: column;
+	color: white;
+	font-size: 17px;
+ }
+
+img{
+	display: inline-block;
+	vertical-align: top;
+	height: 50px;
+}
+
+     					/* --- RODAPÉ --- */
+
+footer{
+	display: flex;
+	color: black;
+	border-top: 1px solid;
+	cursor: default;
+	font-family: SuperMario64;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(0deg, #d79317, #f9b533);
+}
+
+   					/* --- ESTRELA --- */
+
+#conteiner-estrela {
+	background-image: linear-gradient(rgb(var(--light-gold-rgb)), rgb(var(--dark-gold-rgb)));
+	height: 100%;  
+	overflow: hidden;
+	position: relative;
+  }
+  
+#padrao-estrela {
+	background-image: url("https://assets.codepen.io/1468070/Star+Pattern+3.svg");
+	background-size: 10%;  
+	position: absolute;
+	left: 50%;
+	top: 0px;
+	translate: -50% 0%;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	min-width: 1200px;
+	opacity: 0.10;
+	animation: pan 180s linear infinite;
+	will-change: background-position;
+}
+  
+ #gradiente-estrela {
+	background: radial-gradient(circle, transparent 75%, rgb(var(--dark-gold-rgb)));
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0.9;
+    z-index: 2;
+}
+
+  					/* --- LINHAS --- */
+
+#conteiner-linhas {
+	position: absolute;
+	z-index: 3;
+	left: 50%;
+	bottom: 0px;
+	translate: -50% 0%;
+	height: 28vh;
+	min-height: 240px;
+	width: 100%;
+	min-width: 2000px;
+	background-color: rgb(var(--linha-primaria-rgb));
+	
+	clip-path: polygon(
+	  0% 5%, 1.25% 0%, 2.5% 5%, 
+	  3.75% 0%, 5% 5%, 6.25% 0%, 
+	  7.5% 5%, 8.75% 0%, 10% 5%, 
+	  11.25% 0%, 12.5% 5%, 13.75% 0%, 
+	  15% 5%, 16.25% 0%, 17.5% 5%, 
+	  18.75% 0%, 20% 5%, 21.25% 0%, 
+	  22.5% 5%, 23.75% 0%, 25% 5%, 
+	  26.25% 0%, 27.5% 5%, 28.75% 0%, 
+	  30% 5%, 31.25% 0%, 32.5% 5%, 
+	  33.75% 0%, 35% 5%, 36.25% 0%, 
+	  37.5% 5%, 38.75% 0%, 40% 5%, 
+	  41.25% 0%, 42.5% 5%, 43.75% 0%, 
+	  45% 5%, 46.25% 0%, 47.5% 5%, 
+	  48.75% 0%, 50% 5%, 51.25% 0%, 
+	  52.5% 5%, 53.75% 0%, 55% 5%, 
+	  56.25% 0%, 57.5% 5%, 58.75% 0%, 
+	  60% 5%, 61.25% 0%, 62.5% 5%, 
+	  63.75% 0%, 65% 5%, 66.25% 0%, 
+	  67.5% 5%, 68.75% 0%, 70% 5%, 
+	  71.25% 0%, 72.5% 5%, 73.75% 0%, 
+	  75% 5%, 76.25% 0%, 77.5% 5%, 
+	  78.75% 0%, 80% 5%, 81.25% 0%, 
+	  82.5% 5%, 83.75% 0%, 85% 5%, 
+	  86.25% 0%, 87.5% 5%, 88.75% 0%, 
+	  90% 5%, 91.25% 0%, 92.5% 5%, 
+	  93.75% 0%, 95% 5%, 96.25% 0%, 
+	  97.5% 5%, 98.75% 0%, 100% 5%, 
+	  100% 100%, 0% 100%
+	);
+}
+  
+#padrao-linhas {
+	height: 100%;
+	width: 100%;
+	background-size: 18px 18px;
+	background-image: linear-gradient(
+	  -45deg,
+	  rgb(var(--primary-stripe-rgb)) 25%,
+	  rgb(var(--secondary-stripe-rgb)) 25%,
+	  rgb(var(--secondary-stripe-rgb)) 50%,
+	  rgb(var(--primary-stripe-rgb)) 50%,
+	  rgb(var(--primary-stripe-rgb)) 75%,
+	  rgb(var(--secondary-stripe-rgb)) 75%,
+	  rgb(var(--secondary-stripe-rgb)) 100%
+	);
+	box-shadow: inset 0rem 0.5rem 2rem 0.25rem rgb(0 0 0 / 40%);
+	animation: pan 360s linear infinite;
+}
+
+  					/* --- BORDA PRIMARIA --- */
+
+#bordaPrimaria {
+	width: 90vh;
+	height: 60vh;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: 55%;
+	top: -10px;
+	z-index: 10;
+	padding: 2rem;
+  }
+
+  #bordaDentro {
+	display: flex;
+	width: 50rem;
+	aspect-ratio: 5 / 3;
+	position: relative;
+	background-color: rgb(50 50 50);
+	border: 0.5rem solid rgb(30 30 30);
+	border-top-right-radius: 5rem;
+	border-bottom-left-radius: 5rem;
+	overflow: hidden;
+	box-shadow: 12px 25px 50px 12px rgb(0 0 0 / 0.5);
+  }
+
+  #bordaFundo {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	background-image: url("https://assets.codepen.io/1468070/Repeatable+Pattern+-+Wavy+Lines.png?format=auto&quality=80");
+	background-size: 200%;
+	opacity: 0.3;
+	animation: move-background 50s linear infinite;
+  }
+
+  #bordaConteudo {  
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 1rem;
+	position: relative;
+	z-index: 2;
+  }
+
+  .bordaMensagem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+  }
+
+  .bordaMensagem p {
+	display: block;
+	color: white;
+	font-size: 1.5rem;
+	text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+
+  }
+
+  @media(max-height: 800px) {
+	#bordaPrimaria{
+	  left: 750px;
+	}
+  }
+
+@media(max-width: 1080px) {
+	#bordaSecundaria{
+		left: -700px;
+
+	}
+}
+
+@media(max-height: 800px) {
+	#bordaTres{
+		left: -720px;
+
+	}
+}
+
+  					/* --- BORDA SECUNDARIA --- */
+
+#bordaSecundaria {
+	width: 90vh;
+	height: 60vh;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: 0;
+	top: 50vh;
+	z-index: 10;
+	padding: 2rem;
+}
+
+#bordaDentroDois {
+	display: flex;
+	width: 50rem;
+	aspect-ratio: 5 / 3;
+	position: relative;
+	background-color: rgb(50 50 50);
+	border: 0.5rem solid rgb(30 30 30);
+	border-top-right-radius: 5rem;
+	border-bottom-left-radius: 5rem;
+	overflow: hidden;
+	box-shadow: 12px 25px 50px 12px rgb(0 0 0 / 0.5);
+}
+
+#bordaFundoDois {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	background-image: url("https://assets.codepen.io/1468070/Repeatable+Pattern+-+Wavy+Lines.png?format=auto&quality=80");
+	background-size: 200%;
+	opacity: 0.3;
+	animation: move-background 50s linear infinite;
+}
+
+#bordaConteudoDois {  
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 1rem;
+	position: relative;
+	z-index: 2;
+}
+
+  					/* --- BORDA TERCEARIA --- */
+
+#bordaTres {
+	width: 90vh;
+	height: 90vh;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: 55%;
+	top: 85vh;
+	z-index: 10;
+	padding: 2rem;
+  }
+
+  #bordaDentroTres {
+	display: flex;
+	width: 50rem;
+	aspect-ratio: 5 / 3;
+	position: relative;
+	background-color: rgb(50 50 50);
+	border: 0.5rem solid rgb(30 30 30);
+	border-top-right-radius: 5rem;
+	border-bottom-left-radius: 5rem;
+	overflow: hidden;
+	box-shadow: 12px 25px 50px 12px rgb(0 0 0 / 0.5);
+  }
+
+  #bordaFundoTres {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	background-image: url("https://assets.codepen.io/1468070/Repeatable+Pattern+-+Wavy+Lines.png?format=auto&quality=80");
+	background-size: 200%;
+	opacity: 0.3;
+	animation: move-background 50s linear infinite;
+  }
+
+  #bordaConteudoTres {  
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 1rem;
+	position: relative;
+	z-index: 2;
+  }
+
+    					/* --- PERSONAGENS --- */
+
+#Mario{
+	display: flex;
+	position: absolute;
+	height: 28vh;
+	top: -22.5vh;
+	left: 5vh;
+}
+
+#Luigi{
+	display: flex;
+	position: absolute;
+	height: 28vh;
+	top: -2vh;
+	left: 95vh;
+}
+
+#Peach{
+	display: flex;
+	position: absolute;
+	height: 28vh;
+	top: -22.5vh;
+	left: 40vh;
+}
+
+#Daisy{
+	display: flex;
+	position: absolute;
+	height: 27vh;
+	top: -6vh;
+	left: 50vh;
+}
+
+#BowserJr{
+	display: flex;
+	position: absolute;
+	height: 20vh;
+	top: 1.5vh;
+	left: 10vh;
+}
+
+#Coin{
+	display: flex;
+	position: absolute;
+	height: 10vh;
+	top: 36vh;
+	left: -76vh;
+}
+
+#Bloco1{
+	display: flex;
+	position: absolute;
+	height: 10vh;
+	top: 36vh;
+	left: -76vh;
+}
+
+#Bloco2{
+	display: flex;
+	position: absolute;
+	height: 10vh;
+	top: 36vh;
+	left: -36vh;
+}
